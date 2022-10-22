@@ -14,6 +14,7 @@ function navbar() {
             <Nav.Link href="#New">New</Nav.Link>
             <Nav.Link href="#Ofertas">Ofertas</Nav.Link>
             <Nav.Link href="#Shop">Shop</Nav.Link>
+            <Nav.Link href="#Contacto">Carrito</Nav.Link>
             <Nav.Link href="#Contacto">Contacto</Nav.Link>
           </Nav>
         </Navbar.Collapse>
