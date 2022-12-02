@@ -1,13 +1,25 @@
-import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { StarFill } from 'react-bootstrap-icons';
+import {useHome} from "../components/Context/Producto.context";
+import Layout from "../components/Layout";
+import ProductoCard from "../components/ProductoCard";
+import ProductoCardDetail from "../components/ProductoCardDetail";
 
-function Producto(props) {
+function Producto() {
 
-    const bootstrapStyle = {
-        maxWidth: '900px'
-    }
+    const {Productos} = useHome();
+
+    const [id, SetId] = useState(useParams().id);
+
+    const [Producto, SetProducto] = useState(Productos.find(Producto => {
+        return Producto.id === id
+    }))
+
+    const [Category, SetCategory] = useState(Producto.category);
+
+    const [SuggestedProductos, SetSuggestedProductos] = useState(Productos.filter(Producto => {
+        return Producto.category === Category && Producto.id !== id;
+    }))
 
     const ContainerStyle = {
         height:'auto',
@@ -15,35 +27,42 @@ function Producto(props) {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: '1rem 0px 0px 0px'
+        flexDirection: 'column',
+        margin: '1rem 0px 0px 0px',
+        position: 'relative'
+    }
+    
+    const ProductosSuggestionsContainer = {
+        height: 'auto',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        flexWrap: 'wrap',
+        gap: '10px',
     }
 
-    const {Productos} = props;
-    const id =JSON.parse(useParams().id);
+    const SuggestionsContainer = {
+        height: 'auto',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'flex-start',
+        flexDirection: 'column',
+        gap: '10px',
+    }
 
-    const [Producto, SetProducto] = useState(Productos.find(Producto => {
-        return Producto.id === id
-    }))
-    
     return(
-        <div style={ContainerStyle}>
-            <div class="card mb-3" style={bootstrapStyle}>
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src={Producto.image} class="img-fluid rounded-start" alt="Producto"/>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">{Producto.title}</h5>
-                            <p class="card-text">{Producto.description}</p>
-                            
-                            <StarFill></StarFill>
-                            
-                        </div>
+        <Layout>
+            <div style={ContainerStyle}>
+                <ProductoCardDetail Producto={Producto} />
+                <div style={SuggestionsContainer}>
+                    <h4>Productos relacionados</h4>
+                    <div style={ProductosSuggestionsContainer}>
+                        {SuggestedProductos.map(Producto => <ProductoCard Producto={Producto} />)}
                     </div>
                 </div>
             </div>
-        </div>
+        </Layout>
     )
 }
 

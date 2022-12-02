@@ -1,10 +1,12 @@
 import React from "react";
 import ProductoCard from "../components/ProductoCard";
+import Layout from "../components/Layout";
+import {useHome} from "../components/Context/Producto.context";
 
-function Home(props) {
+function Home() {
 
-    const {Productos, CantidadEnCarrito, SetCantidadEnCarrito, InCarrito, SetCarrito} = props;
-
+    const {Productos} = useHome();
+    
     const HomeStyle = {
         height: 'auto',
         width: '100%',
@@ -15,9 +17,11 @@ function Home(props) {
     }
 
     return (
-        <div style={HomeStyle}>
-            {Productos.map(Producto => <ProductoCard CantidadEnCarrito={CantidadEnCarrito} SetCantidadEnCarrito={SetCantidadEnCarrito} InCarrito={InCarrito} SetCarrito={SetCarrito} Producto={Producto}></ProductoCard>)}
-        </div>
+        <Layout>
+            <div style={HomeStyle}>
+                {Productos.map(Producto => <ProductoCard Producto={Producto}></ProductoCard>)}
+            </div>
+        </Layout>
     );
 }
 
