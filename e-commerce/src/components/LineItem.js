@@ -14,15 +14,18 @@ function LineItem(props) {
         const arrayAux = InCarrito.filter(Producto => Producto.id !== id);
         SetCarrito(arrayAux);
         SetCantidadEnCarrito(CantidadEnCarrito - 1);
+    }
 
+    const columnStyle = {
+       
     }
 
     return(
         <tr>
-            <td><Button onClick={()=> {DeleteFromCarrito(Producto.id)}} variant='danger'><Trash/></Button></td>
-            <td><CarritoControllers Producto={Producto}/></td>
-            <td><Image className='carrito-producto-img' fluid='true' thumbnail='true' roundedCircle='true' rounded='true' src={Producto.image}/></td>
-            <td>${Math.round(Producto.price * Producto.cantidad)}</td>
+            <td style={columnStyle}><Button onClick={()=> {DeleteFromCarrito(Producto.id)}} variant='danger'><Trash fontSize={14} /></Button></td>
+            <td style={columnStyle}><CarritoControllers Producto={Producto}/></td>
+            <td style={columnStyle}><Image className='carrito-producto-img' fluid='true' thumbnail='true' roundedCircle='true' rounded='true' src={Producto.image}/></td>
+            <td style={columnStyle}>${Math.round(Producto.price * Producto.cantidad)}</td>
         </tr>
     )
 }

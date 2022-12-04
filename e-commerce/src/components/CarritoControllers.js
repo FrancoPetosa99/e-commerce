@@ -25,12 +25,22 @@ function CarritoControllers(props) {
         margin: '8px'
     }
 
+    const ButtonStyle = {
+        height: '40px',
+        width: '25px',
+        padding: '1rem',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+
     const buttonAddToCartStyle = {
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        gap: '1rem'
+        gap: '1rem',
+        borderRadius: '0'
     }
 
     const BadgeStyle = {
@@ -104,7 +114,7 @@ function CarritoControllers(props) {
     <div style={ContainerStyle}>
         {
             Cantidad > 0
-            ?<div style={buttonControlStyle}><Button onClick={removeFromCarrito} variant="outline-primary">-</Button> <Badge style={BadgeStyle} bg="primary">{Cantidad}</Badge><Button onClick={addToCarrito} variant="outline-primary">+</Button></div>
+            ?<div style={buttonControlStyle}><Button style={ButtonStyle} onClick={removeFromCarrito} variant="outline-primary">-</Button> <Badge style={BadgeStyle} bg="primary">{Cantidad}</Badge><Button style={ButtonStyle} onClick={addToCarrito} variant="outline-primary">+</Button></div>
             :<Button style={buttonAddToCartStyle} onClick={handleAddToCart} size="sm" type="button"><CartCheck fontSize={20} /><b>Agregar al carrito</b></Button>
         }
     </div>

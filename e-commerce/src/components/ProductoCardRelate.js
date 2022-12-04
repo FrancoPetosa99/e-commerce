@@ -6,9 +6,9 @@ import {Link} from 'react-router-dom';
 import { StarFill } from 'react-bootstrap-icons';
 import CarritoControllers from "./CarritoControllers";
 
-function ProductoCard(props) {
+function ProductoCardRelate(props) {
 
-    const {id, price, rate, image, title, stock} = props.Producto;
+    const {price, rate, image, title, stock, category} = props.Producto;
 
     const ButtonStyle = {
         width: '100%',
@@ -34,9 +34,9 @@ function ProductoCard(props) {
                 <ListGroup.Item>Precio: ${Math.round(price)}</ListGroup.Item>
                 <ListGroup.Item>{stock > 0 ? 'Disponible' : 'Agotado'}</ListGroup.Item>
             </ListGroup>
-            <Link to={`/ProductoDetail/${id}`}><Button style={ButtonStyle} variant="outline-primary">Ver detalle</Button></Link>
+            <Link to={`/ProductoRelate/${category}`}><Button style={ButtonStyle} variant="outline-primary">Ver más</Button></Link>
         </Card>
     );
 }
 
-export default ProductoCard;
+export default ProductoCardRelate;

@@ -1,25 +1,14 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import {useHome} from "../components/Context/Producto.context";
 import Layout from "../components/Layout";
 import ProductoCard from "../components/ProductoCard";
-import ProductoCardDetail from "../components/ProductoCardDetail";
 
-function Producto() {
+function ProductoRelate() {
 
     const {Productos} = useHome();
 
-    const [id, SetId] = useState(useParams().id);
-
-    const [Producto, SetProducto] = useState(Productos.find(Producto => {
-        return Producto.id === id
-    }))
-
-    const [Category, SetCategory] = useState(Producto.category);
-
-    const [SuggestedProductos, SetSuggestedProductos] = useState(Productos.filter(Producto => {
-        return Producto.category === Category && Producto.id !== id;
-    }))
+    const category = useParams().category;
 
     const ContainerStyle = {
         height:'auto',
@@ -32,7 +21,7 @@ function Producto() {
         position: 'relative'
     }
     
-    const ProductosSuggestionsContainer = {
+    const ProductosRelatedContainer = {
         height: 'auto',
         width: '100%',
         display: 'flex',
@@ -54,11 +43,11 @@ function Producto() {
     return(
         <Layout>
             <div style={ContainerStyle}>
-                <ProductoCardDetail Producto={Producto} />
+               
                 <div style={SuggestionsContainer}>
                     <h4>Productos relacionados</h4>
-                    <div style={ProductosSuggestionsContainer}>
-                        {SuggestedProductos.map(Producto => <ProductoCard Producto={Producto} />)}
+                    <div style={ProductosRelatedContainer}>
+                        {Productos.filter(Producto => Producto.category === category).map(Producto => <ProductoCard Producto={Producto}/>)}
                     </div>
                 </div>
             </div>
@@ -66,4 +55,4 @@ function Producto() {
     )
 }
 
-export default Producto;
+export default ProductoRelate;

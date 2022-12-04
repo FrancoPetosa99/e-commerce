@@ -10,13 +10,14 @@ function CarritoBtnFloat() {
         width: '3.5rem',
         borderRadius: '50%',
         backgroundColor: '#0d6efd',
-        position: 'absolute',
+        position: 'fixed',
         bottom: '1rem',
         right: '1rem',
         cursor: 'pointer',
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        zIndex: '9999'
     }
 
     const wrapperStyle = {

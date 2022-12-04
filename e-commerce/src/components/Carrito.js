@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 
 function Carrito() {
 
-    const {InCarrito, SetCarrito, CantidadEnCarrito, SetCantidadEnCarrito, ShowCart, SetShowCart} = useHome();
+    const {InCarrito, CantidadEnCarrito, ShowCart, SetShowCart} = useHome();
     const handleClose = () => SetShowCart(false);
 
     const ButtonStyle = {
@@ -40,14 +40,17 @@ function Carrito() {
                     CantidadEnCarrito > 0
                     ?
                     <Link to={'/Payment'}>
-                        <Button style={ButtonStyle} variant="primary">Ir a Pagar 
+                        <Button onClick={handleClose} style={ButtonStyle} variant="primary">Ir a Pagar 
                             ${Math.round(InCarrito.reduce((prevTotal,Producto) => {
                                 return prevTotal + Producto.price * Producto.cantidad
                             }, 0))}
                         </Button>
                     </Link>
                     :
-                    <h4>Su carrito se encuentra vacío</h4>
+                    <Badge  bg="secondary">
+                        <h6>Su carrito se encuentra vacío</h6>
+                        <p>¿No sabe que comprar?</p>
+                    </Badge>
                 }
             </Offcanvas.Body>
         </Offcanvas>

@@ -1,13 +1,23 @@
 import React from "react";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
+import { Form, Button, Navbar, Nav, Container } from "react-bootstrap";
 import {Link} from 'react-router-dom';
+import { Search } from "react-bootstrap-icons";
+import {useHome} from "../Context/Producto.context";
 
 function Navb() {
 
   const NavbarStyle = {
     width: '100%'
+  }
+
+  const FormStyle = {
+    gap: '1rem'
+  }
+
+  const {Filter, SetFilter, getFilteredProducts} = useHome();
+
+  const handleFilter =(e)=> {
+    SetFilter(e.target.value);
   }
 
   return (
@@ -23,6 +33,14 @@ function Navb() {
             <Nav.Link href="#Shop">Shop</Nav.Link>
             <Nav.Link><Link to={'/Contacto'}>Contacto</Link></Nav.Link>
           </Nav>
+          <Form style={FormStyle} className="d-flex">
+            <Form.Control onChange={(e)=>handleFilter(e)} type="search" placeholder="Buscar..." className="lg-2" aria-label="Search" />
+            {
+              Filter
+              ?<Link to={`/Search/${Filter}`}><Button onClick={getFilteredProducts} variant="outline-primary"><Search fontSize={18}/></Button></Link>
+              :<Button variant="outline-primary"><Search fontSize={18}/></Button>
+            }
+          </Form>
         </Navbar.Collapse>
       </Container>
     </Navbar>
