@@ -2,12 +2,23 @@ import React from "react";
 import ProductoCard from "../components/ProductoCard";
 import Layout from "../components/Layout";
 import {useHome} from "../components/Context/Producto.context";
+import Carrusel from "../components/Carrusel";
 
 function Home() {
 
     const {Productos} = useHome();
     
     const HomeStyle = {
+        height: 'auto',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'column',
+        gap: '20px'
+    }
+
+    const containerProductosStyle = {
         height: 'auto',
         width: '100%',
         display: 'grid',
@@ -19,7 +30,10 @@ function Home() {
     return (
         <Layout>
             <div style={HomeStyle}>
-                {Productos.map(Producto => <ProductoCard Producto={Producto}></ProductoCard>)}
+                <Carrusel />
+                <div style={containerProductosStyle}>
+                    {Productos.map(Producto => <ProductoCard Producto={Producto}></ProductoCard>)}
+                </div>
             </div>
         </Layout>
     );

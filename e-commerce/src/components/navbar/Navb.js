@@ -7,7 +7,8 @@ import {useHome} from "../Context/Producto.context";
 function Navb() {
 
   const NavbarStyle = {
-    width: '100%'
+    width: '100%',
+    marginBottom: '1rem'
   }
 
   const FormStyle = {

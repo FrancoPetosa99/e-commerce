@@ -22,10 +22,10 @@ function FilteredByCategory(props) {
     const FilteredProductosStyle = {
         height: 'auto',
         width: '100%',
-        display: 'flex',
-        justifyContent: 'space-evenly',
-        flexWrap: 'wrap',
-        gap: '1rem',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(350px,1fr))',
+        justifyItems: 'center',
+        gap: '20px'
     }
 
     const labelStyle = {

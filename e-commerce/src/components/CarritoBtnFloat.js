@@ -6,8 +6,8 @@ import Badge from 'react-bootstrap/Badge';
 function CarritoBtnFloat() {
 
     const containerStyle = {
-        height: '3.5rem',
-        width: '3.5rem',
+        height: '3rem',
+        width: '3rem',
         borderRadius: '50%',
         backgroundColor: '#0d6efd',
         position: 'fixed',
@@ -45,7 +45,7 @@ function CarritoBtnFloat() {
     return (
         <div onClick={handleShowCart} style={containerStyle}>
             <div style={wrapperStyle}>
-                <CartCheck fill="white" fontSize={25}/>
+                <CartCheck fill="white" fontSize={20}/>
                 {
                     CantidadEnCarrito > 0 &&
                     <Badge style={cantidadStyle} bg="danger">{CantidadEnCarrito}</Badge>

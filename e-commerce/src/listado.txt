@@ -1,6 +1,0 @@
-1-Home: página de inicio donde el usuario va a poder ver un resumen del contenido total de la aplicación
-2-New: página secundaria para mostrarle al usuario los ultimas novedades
-3-Ofertas: página secundaria para mostrarle al usuario sobre productos en ofertas
-4-Shop: página secundaria donde se pueden ver y filtrar todos los productos
-5-Carrito: página donde el usuario pueda ver sus productos en el carrito para agregar/eliminar
-6-Contacto: página con un formulario 

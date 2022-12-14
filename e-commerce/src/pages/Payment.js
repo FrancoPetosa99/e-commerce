@@ -12,9 +12,7 @@ import Button from 'react-bootstrap/Button';
 function Payment() {
 
     const {InCarrito, ClientData, SetClientData, submitSelling} = useHome();
-
     
-  
     const FormStyles = {
       maxWidth: '900px',
       padding: '1rem',

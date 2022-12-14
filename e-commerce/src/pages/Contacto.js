@@ -26,30 +26,30 @@ function Contacto() {
         <Row className="mb-3">
           <Col sm="6" className="mb-3">
             <Form.Group className="mb-3" controlId="ClientName">
-              <Form.Control type="text" placeholder="Enter your Name" />
+              <Form.Control type="text" placeholder="Ingrese su nombe" />
             </Form.Group>
           </Col>
           <Col sm="6">
             <Form.Group className="mb-3" controlId="ClientLastName">
-              <Form.Control type="text" placeholder="Enter your Last Name" />
+              <Form.Control type="text" placeholder="Ingrese su apellido" />
             </Form.Group>
           </Col>
         </Row>
         <Row>
           <Col sm="6">
             <Form.Group className="mb-3" controlId="ClientAddress">
-              <Form.Control type="text" placeholder="Enter your Address" />
+              <Form.Control type="text" placeholder="Ingrese su dirección" />
             </Form.Group>
           </Col>
           <Col sm="6">
             <Form.Group className="mb-3" controlId="ClientEmail">
-              <Form.Control type="email" placeholder="Enter your Email Address" />
-              <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+              <Form.Control type="email" placeholder="Ingrese su email" />
+              <Form.Text className="text-muted">No compartiremos su dirrección con nadie más.</Form.Text>
             </Form.Group>
           </Col>
         </Row>
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-          <Form.Control as="textarea" rows={10} placeholder="Please leave any comment" />
+          <Form.Control as="textarea" rows={10} placeholder="Dejenos sus comentarios" />
         </Form.Group>
         <Button onClick={handleSubmit} style={ButtonStyles} size='mb' className="mb-3" variant="primary" type="button">Send</Button>
       </Form>
